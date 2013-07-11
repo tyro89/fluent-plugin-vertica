@@ -19,7 +19,8 @@ module Fluent
     end
 
     def format(tag, time, record)
-      CSV.generate_line(record.values, { :col_sep => "\t" })
+      values = columns.map { |col| record[col] }
+      CSV.generate_line(values, { :col_sep => "\t" })
     end
 
     def write(chunk)
