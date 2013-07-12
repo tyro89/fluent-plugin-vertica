@@ -26,7 +26,7 @@ module Fluent
     def write(chunk)
       chunk.open do |file|
         copy_sql = <<-SQL
-            COPY #{@schema}.#{@table} (#{columns})
+            COPY #{@schema}.#{@table} (#{columns.join(",")})
             FROM STDIN DELIMITER E'\t'
           RECORD TERMINATOR E'\n' NULL AS '__NULL__'
           ENFORCELENGTH
@@ -54,7 +54,7 @@ module Fluent
     end
 
     def columns
-       @columns ||= vertica.query(<<-SQL).map { |column| column[:column_name] }.join(",")
+       @columns ||= vertica.query(<<-SQL).map { |column| column[:column_name] }
            SELECT column_name
              FROM columns
             WHERE table_schema ='public'
