@@ -57,8 +57,8 @@ module Fluent
        @columns ||= vertica.query(<<-SQL).map { |column| column[:column_name] }
            SELECT column_name
              FROM columns
-            WHERE table_schema ='public'
-              AND table_name='my_test'
+            WHERE table_schema ='#{@schema}'
+              AND table_name='#{@table}'
          ORDER BY ordinal_position;
        SQL
     end
