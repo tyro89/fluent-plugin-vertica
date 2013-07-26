@@ -2,14 +2,15 @@ module Fluent
   class VerticaOutput < Fluent::BufferedOutput
     Fluent::Plugin.register_output('vertica', self)
 
-    config_param :host,     :string,  :default => '127.0.0.1'
-    config_param :port,     :integer, :default => 5433
-    config_param :username, :string,  :default => 'dbadmin'
-    config_param :password, :string,  :default => nil
-    config_param :database, :string,  :default => nil
-    config_param :schema,   :string,  :default => nil
-    config_param :table,    :string,  :default => nil
-    config_param :ssl,      :bool,    :default => false
+    config_param :host,           :string,  :default => '127.0.0.1'
+    config_param :port,           :integer, :default => 5433
+    config_param :username,       :string,  :default => 'dbadmin'
+    config_param :password,       :string,  :default => nil
+    config_param :database,       :string,  :default => nil
+    config_param :schema,         :string,  :default => nil
+    config_param :table,          :string,  :default => nil
+    config_param :ssl,            :bool,    :default => false
+    config_param :enforce_length, :bool,    :default => false
 
     def initialize
       super
@@ -32,6 +33,7 @@ module Fluent
           ENFORCELENGTH
            ABORT ON ERROR
          TRICKLE
+         #{"ENFORCELENGTH" if @enforce_length}
         SQL
 
         vertica.copy(copy_sql) do |copy_handle|
