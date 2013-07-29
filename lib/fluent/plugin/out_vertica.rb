@@ -129,7 +129,7 @@ module Fluent
 
     def empty_table?(table)
       @empty ||= vertica.query(<<-SQL).first[:count] == 0
-        SELECT count(1) FROM #{table};
+        SELECT count(1) FROM #{table}
       SQL
     end
   end
