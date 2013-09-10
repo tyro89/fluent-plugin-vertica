@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Fluent-plugin-vertica by tyro89</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Fluent-plugin-vertica</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/tyro89/fluent-plugin-vertica">View the Project on GitHub <small>tyro89/fluent-plugin-vertica</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/tyro89/fluent-plugin-vertica/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/tyro89/fluent-plugin-vertica/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/tyro89/fluent-plugin-vertica">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<a name="fluentd-output-plugin-for-vertica" class="anchor" href="#fluentd-output-plugin-for-vertica"><span class="octicon octicon-link"></span></a>Fluentd output plugin for Vertica</h3>
+
+<p>Simple batched output plugin for getting events into vertica.</p>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<pre><code>gem install fluent-plugin-vertica
+</code></pre>
+
+<h3>
+<a name="example-config" class="anchor" href="#example-config"><span class="octicon octicon-link"></span></a>Example config</h3>
+
+<pre><code>&lt;match vertica.public.test&gt;
+  type vertica
+
+  database mydb
+  schema public
+  table test
+
+  username dbadmin
+  password mypass
+
+  host 127.0.0.1
+  port 5433
+&lt;/match&gt;
+</code></pre>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>Erik Selin (<a href="https://github.com/tyro89" class="user-mention">@tyro89</a>)</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/tyro89">tyro89</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
