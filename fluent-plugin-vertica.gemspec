@@ -1,5 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name     = "fluent-plugin-vertica"
+  spec.license  = "MIT"
   spec.version  = File.read("VERSION").strip
   spec.authors  = ["Erik Selin"]
   spec.email    = ["erik.selin@ifelsestudio.com"]
