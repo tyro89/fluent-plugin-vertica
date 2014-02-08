@@ -1,4 +1,4 @@
-Fluentd output plugin for Vertica
+[Fluentd](http://fluentd.org) output plugin for Vertica
 =================================
 
 Simple batched output plugin for getting events into vertica.
